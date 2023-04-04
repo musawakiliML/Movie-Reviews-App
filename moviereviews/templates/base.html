@@ -18,9 +18,9 @@
     />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 rounded">
       <div class="container">
-        <a class="navbar-brand" href="#">Movies</a>
+        <a class="navbar-brand" href="{% url 'home' %}">Movies</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -32,19 +32,56 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ms-5 ps-5">
+            <a class="nav-link" href="{% url 'news' %}">News</a>
+            <a class="nav-link" href="#">Featured</a>
+            <a class="nav-link" href="#">Contact</a>
+          </div>
+
           <div class="navbar-nav ms-auto">
-            <a class="nav-link" href="#">News</a>
-            <a class="nav-link" href="#">Login</a>
-            <a class="nav-link" href="#">Sign Up</a>
+            <form role="search" class="me-5">
+              <input
+                class="form-control"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                name="searchMovie"
+              />
+            </form>
+
+            <button type="button" class="btn btn-outline-primary me-2">
+              Login
+            </button>
+            <button type="button" class="btn btn-primary">Sign-up</button>
           </div>
         </div>
       </div>
     </nav>
 
-    <div class="container">
-        {% block content %} 
-        {% endblock content %}
-    </div>
+    <div class="container">{% block content %} {% endblock content %}</div>
+
+    <footer class="text-center text-lg-start bg-light text-muted mt-4">
+      <div class="text-center"></div>
+      <div class="text-center p-4">
+        © Copyright -
+        <a
+          class="text-reset fw-bold text-decoration-none"
+          target="_blank"
+          href="https://twitter.com/musawakiliml"
+        >
+          Musa Wakili ML
+        </a>
+        -
+        <a
+          class="text-reset fw-bold text-decoration-none"
+          target="_blank"
+          href="https://twitter.com/danielgarax"
+        >
+          Musa
+        </a>
+      </div>
+    </footer>
   </body>
 </html>
