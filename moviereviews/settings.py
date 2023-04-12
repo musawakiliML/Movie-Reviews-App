@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     # User Apps
     'movie',
     'news',
+    'accounts',
     
     # Third-party apps
     'fontawesomefree',
