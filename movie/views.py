@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http.response import HttpResponse
+from django.shortcuts import get_object_or_404
 from .models import Movie
 
 # Create your views here.
@@ -30,3 +31,13 @@ def signup(request):
         "email": email
     }
     return render(request, 'signup.html', context)
+
+def movie(request):
+    pass
+
+def detail(request, movie_id):
+    movie = get_object_or_404(Movie, pk=movie_id)
+    context = {
+        'movie':movie
+    }
+    return render(request, 'detail.html', context)
