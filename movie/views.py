@@ -33,7 +33,7 @@ def signup(request):
     return render(request, 'signup.html', context)
 
 def movie(request):
-    pass
+    return HttpResponse("<h1>Movies Page</h1>")
 
 def detail(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
