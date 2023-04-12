@@ -32,11 +32,11 @@ def signup(request):
             }
             return render(request, 'signup.html', context)
 
-def logout(request):
+def logoutacc(request):
     logout(request)
     return redirect('home')
 
-def login(request):
+def loginacc(request):
     if request.method == "GET":
         context = {
             'form': AuthenticationForm

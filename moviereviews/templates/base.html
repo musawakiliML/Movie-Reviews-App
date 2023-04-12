@@ -77,11 +77,11 @@
               />
             </form>
             {% if user.is_authenticated %}
-            <a class="nav-link" href="{% url 'logout' %}">
+            <a class="nav-link" href="{% url 'logoutacc' %}">
               Logout ({{ user.username }})
             </a>
             {% else %}
-            <a href="{% url 'login' %}"
+            <a href="{% url 'loginacc' %}"
               ><button type="button" class="btn btn-outline-primary me-2">
                 Login
               </button>
