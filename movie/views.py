@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http.response import HttpResponse
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import login_required
 from .models import Movie, Review
 from .forms import ReviewForm
 
@@ -46,6 +47,7 @@ def detail(request, movie_id):
     }
     return render(request, 'detail.html', context)
 
+@login_required
 def createreview(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
     if request.method == "GET":
@@ -70,7 +72,7 @@ def createreview(request, movie_id):
             }
             return render(request, 'createreview.html', context)
 
-
+@login_required
 def updatereview(request, review_id):
     '''Function to create update review view'''
     review = get_object_or_404(Review, pk=review_id, user=request.user)
@@ -93,3 +95,10 @@ def updatereview(request, review_id):
                 'error':'Bad data in form'
             }
             return render(request, 'updatereview.html', context)
+
+@login_required
+def deletereview(request, review_id):
+    '''This function deletes the review'''
+    review = get_object_or_404(Review, pk=review_id, user=request.user)
+    review.delete()
+    return redirect('detail', review.movie.id)

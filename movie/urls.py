@@ -9,5 +9,6 @@ urlpatterns = [
     #path('movie/', movie, name='movie'),
     path('<int:movie_id>', detail, name='detail'),
     path('<int:movie_id>/create', createreview, name='createreview'),
-    path('review/<int:review_id>', updatereview, name='updatereview')    
+    path('review/<int:review_id>', updatereview, name='updatereview'),
+    path('review/<int:review_id>/delete', deletereview, name='deletereview')   
 ]

@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .forms import UserCreateForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 
 # Create your views here.
@@ -32,6 +33,7 @@ def signup(request):
             }
             return render(request, 'signup.html', context)
 
+@login_required
 def logoutacc(request):
     logout(request)
     return redirect('home')
